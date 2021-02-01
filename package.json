@@ -1,0 +1,7 @@
+{
+  "name": "polybar-musicjs",
+  "version": "1.0.0",
+  "description": "Show currently playing song from Spotify for from LastFM scrobbling",
+  "author": "lyonelz",
+  "license": "MIT"
+}
