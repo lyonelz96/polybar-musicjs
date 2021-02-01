@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "description": "Show currently playing song from Spotify for from LastFM scrobbling",
   "author": "lyonelz",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dbus-next": "^0.9.1"
+  }
 }
