@@ -16,10 +16,13 @@ const getProperties = () => (
         .then(obj => obj.getInterface(PROPERTIES))
 )
 
-
+const getMetadata = () => (
+    getProperties()
+    .then(properties => properties.Get(PLAYER, 'Metadata'))
+)
 
 module.exports = {
     getPlayer,
     getProperties,
-    PLAYER
+    getMetadata,
 }
