@@ -1,10 +1,12 @@
 {
   "name": "polybar-musicjs",
   "version": "1.0.0",
-  "description": "Show currently playing song from Spotify for from LastFM scrobbling",
+  "description": "Show currently playing song from Spotify (As well as controls) and LastFM Scrobbler",
   "author": "lyonelz",
   "license": "MIT",
   "dependencies": {
-    "dbus-next": "^0.9.1"
+    "axios": "^0.21.1",
+    "dbus-next": "^0.9.1",
+    "dotenv": "^8.2.0"
   }
 }
