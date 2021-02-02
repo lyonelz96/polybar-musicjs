@@ -1,5 +1,4 @@
 const { getPlayer } = require('./dbus')
 
 getPlayer()
-    .then(player => player.Next())
-    .catch()
+    .then(player => player ? player.Next() : '')
