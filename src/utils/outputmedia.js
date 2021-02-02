@@ -1,7 +1,6 @@
-require('dotenv').config()
 
 const { scrollText, getScrollTimeout } = require('./scrollingtext')
-const MAX_CHAR = process.env.MAX_CHAR
+const { MAX_CHAR } = require('./maxchar')
 
 const outputMedia = media => {
     clearTimeout(getScrollTimeout())

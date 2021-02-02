@@ -1,18 +1,15 @@
-require('dotenv').config()
+const { LASTFM_API_KEY, LASTFM_USERNAME } = require('../utils/env')
 
 const axios = require('axios')
 const { outputMedia } = require('../utils/outputmedia')
-
-const API_KEY = process.env.API_KEY
-const USERNAME = process.env.USERNAME
 
 const API_ROOT = 'http://ws.audioscrobbler.com/2.0'
 const PARAMS = {
     method: 'user.getRecentTracks',
     format: 'json',
     limit: 1,
-    user: USERNAME,
-    api_key: API_KEY
+    user: LASTFM_USERNAME,
+    api_key: LASTFM_API_KEY
 }
 
 const getArtist = res => res.data.recenttracks.track[0].artist['#text']
