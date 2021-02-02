@@ -1,5 +1,5 @@
 const { getProperties, getMetadata } = require('./dbus')
-const { outputMedia} = require('../utils/outputmedia')
+const { outputMedia } = require('../utils/outputmedia')
 
 const getArtist = metadata => metadata.value['xesam:artist'].value
 const getSong = metadata => metadata.value['xesam:title'].value
@@ -13,10 +13,10 @@ const listenForChange = properties => {
 
 getMetadata()
     .then(metadata =>
-        outputMedia(getMedia(metadata))
+        metadata ? outputMedia(getMedia(metadata)) : ''
     )
 
 getProperties()
     .then(properties =>
-        listenForChange(properties)
+        properties ? listenForChange(properties) : ''
     )

@@ -1,6 +1,6 @@
+const {MAX_CHAR} = require('./maxchar')
 
 let scrollTimeout = undefined
-const MAX_CHAR = 40
 
 const scrollText = text => {
     let beginning = 0
