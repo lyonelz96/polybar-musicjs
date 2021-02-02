@@ -19,5 +19,6 @@ axios.get(API_ROOT, {
     params: PARAMS
 })
     .then(res => outputMedia(`${getArtist(res)} - ${getSong(res)}`))
+    .catch(() => console.log('Media not found'))
 
 
