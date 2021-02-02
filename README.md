@@ -74,3 +74,9 @@ These scripts can be used with polybar to make your own module.
   fill out the execution paths!
   - Add the modules to your bar in the polybar config
   - Launch polybar! Hopefully everything is working :)
+
+# Issues/Pull Requests
+  - Feel free to open an issue if you found a bug, as well as making a PR
+  - I provided some simple templates so you they can give you an idea of how 
+  to make the best issue or PR you can! If you have better ideas for templates
+  let me know too!
