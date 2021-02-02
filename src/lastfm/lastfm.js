@@ -2,6 +2,7 @@ const { LASTFM_API_KEY, LASTFM_USERNAME } = require('../utils/env')
 
 const axios = require('axios')
 const { outputMedia } = require('../utils/outputmedia')
+const { MAX_CHAR } = require('../utils/maxchar')
 
 const API_ROOT = 'http://ws.audioscrobbler.com/2.0'
 const PARAMS = {
@@ -15,10 +16,29 @@ const PARAMS = {
 const getArtist = res => res.data.recenttracks.track[0].artist['#text']
 const getSong = res => res.data.recenttracks.track[0].name
 
-axios.get(API_ROOT, {
-    params: PARAMS
-})
-    .then(res => outputMedia(`${getArtist(res)} - ${getSong(res)}`))
-    .catch(() => console.log('Media not found'))
+const displayCurrentlyPlaying = () => {
 
+    let currentlyPlayingSong = ''
 
+    const fetch = () => {
+        axios.get(API_ROOT, {
+            params: PARAMS
+        })
+            .then(res => {
+                const song = `${getArtist(res)} - ${getSong(res)}`
+
+                if (song !== currentlyPlayingSong) {
+                    outputMedia(song)
+                    currentlyPlayingSong = song
+                }
+
+            })
+            .catch(() => console.log('Media not found'))
+
+        setTimeout(fetch, 5000)
+    }
+
+    fetch()
+}
+
+displayCurrentlyPlaying()
