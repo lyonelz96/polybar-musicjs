@@ -5,10 +5,21 @@ const getArtist = metadata => metadata.value['xesam:artist'].value
 const getSong = metadata => metadata.value['xesam:title'].value
 const getMedia = metadata => `${getArtist(metadata)} - ${getSong(metadata)}`
 
+
+let currentlyPlayingSong = ''
+
 const listenForChange = properties => {
-    properties.on('PropertiesChanged', (iface, changed, invalidated) =>
-        outputMedia(getMedia(changed['Metadata']))
-    )
+
+    properties.on('PropertiesChanged', (iface, changed, invalidated) => {
+        const song = getMedia(changed['Metadata'])  
+        
+
+        if(song !== currentlyPlayingSong){
+            currentlyPlayingSong = song
+            outputMedia(song)
+        }
+
+    })
 }
 
 getMetadata()

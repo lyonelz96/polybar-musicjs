@@ -2,7 +2,6 @@ const { LASTFM_API_KEY, LASTFM_USERNAME } = require('../utils/env')
 
 const axios = require('axios')
 const { outputMedia } = require('../utils/outputmedia')
-const { MAX_CHAR } = require('../utils/maxchar')
 
 const API_ROOT = 'http://ws.audioscrobbler.com/2.0'
 const PARAMS = {
