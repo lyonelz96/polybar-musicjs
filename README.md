@@ -72,6 +72,30 @@ These scripts can be used with polybar to make your own module.
       - lastfm (Shows the song)
   - Make sure you edit the spotify.ini and lastfm.ini files for your needs and
   fill out the execution paths!
+    - For example, the spotify module might look like this
+    ```
+    [module/spotify]
+    type = custom/script
+    exec = "node path/to/spotify_metadata.js"
+    exec-if = pgrep -x spotify
+    tail = true
+
+    format =  <label>
+    format-padding = 1
+    ```
+    - The prev module might look like this
+    ```
+    [module/prev]
+    type = custom/script
+    exec = echo "prev"
+    exec-if = pgrep -x spotify
+    tail = true
+
+    format = 玲
+    format-padding = 1
+
+    click-left = "node path/to/prev.js"
+    ```
   - Add the modules to your bar in the polybar config
   - Launch polybar! Hopefully everything is working :)
 
