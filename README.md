@@ -25,12 +25,12 @@ These scripts can be used with polybar to make your own module.
 # How to Use
   - Clone the repo wherever you'd like (I'd recommend somewhere in your 
   polybar config directory)
-  ```
+  ```bash
   cd $HOME/.config/polybar
   git clone https://github.com/lyonelz96/polybar-musicjs.git
   ```
   - Do an npm install in the polybar-musicjs directory
-  ```
+  ```bash
   cd polybar-musicjs
   npm install
   ```
@@ -46,7 +46,7 @@ These scripts can be used with polybar to make your own module.
     ```
     - Don't make the contents of this file public!
   - At this point you can test the scripts out by running
-  ```
+  ```bash
   node path/to/script.js
   ```
 ## Polybar Modules
@@ -55,12 +55,12 @@ These scripts can be used with polybar to make your own module.
   - You can either copy paste that into your polybar config or you can copy
   the .ini files into your polybar config directory and include them in your
   polybar config
-  ```
+  ```bash
   cd polybar-musicjs/polybar-modules
   cp spotify.ini lastfm.ini $HOME/.config/polybar
   ```
   - Then you can include them in your polybar config like this
-  ```
+  ```ini
   include-files = path/to/spotify.ini
   include-files = path/to/lastfm.ini
   ```
@@ -75,7 +75,7 @@ These scripts can be used with polybar to make your own module.
   - Make sure you edit the spotify.ini and lastfm.ini files for your needs and
   fill out the execution paths!
     - For example, the spotify module might look like this
-    ```
+    ```ini
     [module/spotify]
     type = custom/script
     exec = "node path/to/spotify_metadata.js"
@@ -86,7 +86,7 @@ These scripts can be used with polybar to make your own module.
     format-padding = 1
     ```
     - The prev module might look like this
-    ```
+    ```ini
     [module/prev]
     type = custom/script
     exec = echo "prev"
