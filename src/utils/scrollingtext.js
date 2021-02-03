@@ -12,7 +12,7 @@ const scrollText = text => {
         end++
 
         if (end >= text.length - MAX_CHAR) {
-            text = text.concat(` | ${text}`)
+            text = text.concat(` -- ${text}`)
         }
 
         scrollTimeout = setTimeout(scrollHandler, 500)
