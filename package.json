@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Show currently playing song from Spotify (As well as controls) and LastFM Scrobbler",
   "author": "lyonelz",
-  "license": "MIT",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
     "axios": "^0.21.1",
     "dbus-next": "^0.9.1",
