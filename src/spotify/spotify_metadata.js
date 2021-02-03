@@ -11,10 +11,9 @@ let currentlyPlayingSong = ''
 const listenForChange = properties => {
 
     properties.on('PropertiesChanged', (iface, changed, invalidated) => {
-        const song = getMedia(changed['Metadata'])  
-        
+        const song = getMedia(changed['Metadata'])
 
-        if(song !== currentlyPlayingSong){
+        if (song !== currentlyPlayingSong) {
             currentlyPlayingSong = song
             outputMedia(song)
         }
@@ -22,12 +21,45 @@ const listenForChange = properties => {
     })
 }
 
-getMetadata()
-    .then(metadata =>
-        metadata ? outputMedia(getMedia(metadata)) : ''
-    )
+const handleMetadata = () => {
+    let handlerTimeout = undefined
 
-getProperties()
-    .then(properties =>
-        properties ? listenForChange(properties) : ''
-    )
+    const handler = () => {
+        getMetadata()
+            .then(metadata => {
+                if (metadata) {
+                    clearTimeout(handlerTimeout)
+                    outputMedia(getMedia(metadata))
+                }
+                else {
+                    setTimeout(handler, 5000)
+                }
+            })
+    }
+
+    handler()
+}
+
+const handleProperties = () => {
+    let handlerTimeout = undefined
+
+    const handler = () => {
+        getProperties()
+        .then(properties => {
+            if (properties) {
+                clearTimeout(handlerTimeout)
+                listenForChange(properties)
+            }
+            else {
+                setTimeout(handler, 5000)
+            }
+        })
+    }
+
+    handler()
+}
+
+handleMetadata()
+handleProperties()
+
+
