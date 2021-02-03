@@ -9,9 +9,11 @@ These scripts can be used with polybar to make your own module.
 
 ## Spotify
 ![Spotify](screenshots/spotify.png)
+![SpotifyGIF](screenshots/spotify.gif)
 
 ## LastFM
 ![LastFM](screenshots/lastfm.png)
+![LastFMGIF](screenshots/lastfm.gif)
 
 # Dependencies
   - Make sure you have [Node.js](https://nodejs.org/en/) installed 
